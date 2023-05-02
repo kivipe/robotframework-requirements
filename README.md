@@ -1,5 +1,7 @@
 # Requirements checking library for Robot Framework
 
+![Tests](https://github.com/kivipe/robotframework-requirements/actions/workflows/tests.yml/badge.svg)
+
 ## Introduction
 
 Robotframework-requirements is a library that verifies all packages in
