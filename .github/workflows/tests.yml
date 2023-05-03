@@ -19,6 +19,7 @@ jobs:
         python -m pip install --upgrade pip
         python -m pip install -r requirements.txt
         python -m pip install -r requirements-dev.txt
+        python -m pip install coveralls
     - name: Analysing the code with pylint
       run: |
         pylint src/RequirementsLibrary
@@ -39,8 +40,11 @@ jobs:
       run: |
         pymarkdown scan README.md CHANGELOG.md
     - name: Run unit tests with pytest
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         pytest
+        coveralls
     - name: Run acceptance tests with Robot Framework
       run: |
         robot atest
