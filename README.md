@@ -1,6 +1,7 @@
 # Requirements checking library for Robot Framework
 
 ![Tests](https://github.com/kivipe/robotframework-requirements/actions/workflows/tests.yml/badge.svg)
+[![Coverage Status](https://coveralls.io/repos/github/kivipe/robotframework-requirements/badge.svg?branch=coveralls)](https://coveralls.io/github/kivipe/robotframework-requirements?branch=coveralls)
 
 ## Introduction
 
