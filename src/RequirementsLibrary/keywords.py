@@ -43,7 +43,7 @@ class RequirementsKeywords:
             self.requirements = _get_requirements(requirements_path)
         success = _compare_versions(self.requirements, self.installed)
         if success is False:
-            raise Exception("Packages have incorrect versions or are missing. Check logs")
+            raise RuntimeError("Packages have incorrect versions or are missing. Check logs")
         return True
 
 
@@ -102,14 +102,14 @@ def _get_requirements(requirements_path="requirements.txt") -> list:
                 for requirement in pkg_resources.parse_requirements(requirements_txt)
             ]
     except FileNotFoundError as filenotfound_error:
-        raise Exception(f"Cannot find file {requirements_path}") from filenotfound_error
+        raise RuntimeError(f"Cannot find file {requirements_path}") from filenotfound_error
     logger.debug(f"Loaded {len(install_requires_list)}requirements")
     return install_requires_list
 
 
 def _get_installed() -> list:
     """Return list of installed packages."""
-    installed_packages = pkg_resources.working_set.__iter__()
+    installed_packages = iter(pkg_resources.working_set)
     installed_packages_list = sorted(
         [Package(i.key, "==", version.parse(i.version)) for i in installed_packages]
     )
