@@ -10,3 +10,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 
 - Initial version of library
+
+## 0.1.1
+
+### Added
+
+- Add tests for Python 3.12
+
+### Updates
+
+- Update actions to use node20

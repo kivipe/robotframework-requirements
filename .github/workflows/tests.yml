@@ -38,7 +38,8 @@ jobs:
         black --line-length 100 --check tests
     - name: Lint markdown files
       run: |
-        pymarkdown scan README.md CHANGELOG.md
+        pymarkdown scan README.md
+        pymarkdown -d no-duplicate-heading,no-duplicate-header scan CHANGELOG.md
     - name: Run unit tests with pytest
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
